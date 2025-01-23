@@ -1,52 +1,27 @@
 #include <iostream>
-#include <ctime>
-#include <cstdlib>
+#include <string>
+#include "chef.h"
+#include "italianChef.h"
 
 using namespace std;
-int game(int);
-int x;
 
 int main()
 {
-    cout << "Valitse vaikeustaso"; //Arvausten maara.
-    cin >> x;
-    game(x);
-}
+    Chef olio("Gordoni");
 
-int game(int maxnum)
-{
-    srand((unsigned) time(0));
+    italianChef olio2("Marco");
 
-    int random;
-    int arvaus = -1;
-    int arvaustenmaara = 0;
 
-    random = (rand() % 20) + 1;
-    while (arvaus != random){
-
-        if (arvaustenmaara == maxnum){
-            cout << "Peli paattyi" << endl;
-            break;
-        }
+    cout<< " Gordoni valmisti " << olio.makeSalad(30) << "  annosta salaattia ja " << endl;
+    cout<< olio.makeSoup(10)<< " annosta keittoa " << endl;
 
 
 
-        cout << "Arvaa luku." << endl;
-        cin >> arvaus;
-        arvaustenmaara++;
+    cout<< olio2.askSecret("pizza",200,200) << " salasana pyydetty. " << endl;
 
 
-        if(arvaus > random){
-            cout << "Arvaus on liian suuri." << endl;
-        }
 
-        if(arvaus < random){
-            cout << "Arvaus on liian pieni." << endl;
-        }
 
-        if(arvaus == random){
-            cout << "Arvausten maara:" << arvaustenmaara << endl;
-            cout << "Arvasit oikein." << endl;
-        }
-    }
+    return 0;
+
 }
